@@ -13,7 +13,7 @@ class _UserTransactionState extends State<UserTransaction> {
     Transaction(
         id: 't1', title: 'new Shoes', amount: 70.31, date: DateTime.now()),
     Transaction(
-        id: 't2', title: 'ice cream', amount: 2.876, date: DateTime.now()),
+        id: 't2', title: 'ice cream', amount: 21.876, date: DateTime.now()),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
