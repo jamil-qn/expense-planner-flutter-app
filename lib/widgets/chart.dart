@@ -28,7 +28,7 @@ class Chart extends StatelessWidget {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSun
       };
-    });
+    }).reversed.toList();
   }
 
   double get totalSpending {
@@ -39,7 +39,6 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(groupTransactionValues);
     return Card(
       elevation: 5,
       margin: EdgeInsets.all(20),
@@ -50,7 +49,7 @@ class Chart extends StatelessWidget {
           children: groupTransactionValues.map((data) {
             return Flexible(
               fit: FlexFit.tight,
-                        child: ChartBar(
+              child: ChartBar(
                   data['day'] as String,
                   data['amount'] as double,
                   totalSpending == 0.0
