@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import './adaptive_textbutton.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTx;
@@ -52,7 +56,7 @@ class _NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-          child: Card(
+      child: Card(
         elevation: 5,
         child: Container(
           padding: EdgeInsets.only(
@@ -64,6 +68,9 @@ class _NewTransactionState extends State<NewTransaction> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              // CupertinoTextField(
+              //   placeholder: ,
+              // ), //that input for ios
               TextField(
                 decoration: InputDecoration(labelText: 'Title'),
                 controller: _titleController,
@@ -87,14 +94,7 @@ class _NewTransactionState extends State<NewTransaction> {
                           ? 'No DateChosen!'
                           : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}'),
                     ),
-                    TextButton(
-                        style: TextButton.styleFrom(
-                            primary: Theme.of(context).primaryColor),
-                        onPressed: _presentDatePicker,
-                        child: Text(
-                          'Choose Date',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ))
+                    AdaptiveTextButton('Choose Date', _presentDatePicker),
                   ],
                 ),
               ),
